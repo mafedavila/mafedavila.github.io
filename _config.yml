@@ -8,7 +8,7 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Maria F. Davila R. / Academic Profile"
+title                    : "Academic Profile"
 title_separator          : "-"
 name                     : &name "Maria F. Davila R."
 description              : &description "PhD Candidate in Computer Science at the University of Oldenburg | Mechanical Engineer (BSc) | MSc in Renewable Energies | Industry Expert in Energy Efficiency"
@@ -22,12 +22,12 @@ repository               : "academicpages/academicpages.github.io"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : "Your Sidebar Name"
+  name             : "Maria F. Davila R."
   pronouns         : "she/her" # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
+  bio              : "I am a PhD candidate in Computer Science at the University of Oldenburg, specializing in tabular data synthesis with deep generative models. With a Master’s degree in Renewable Energies and a Bachelor’s in Mechanical Engineering, I combine a strong technical foundation with expertise in data analysis, energy efficiency, and sustainability. Over the past years, I have worked with large manufacturing companies, developing digital tools to optimize resource consumption and analyze carbon footprints. My passion lies in bridging informatics and mechanical engineering to drive industry forward."
   location         : "Oldenburg, Germany"
   employer         : "Carl von Ossietzky"
-  uri              : # URL
+  uri              : "https://uol.de" # URL
   email            : "maria.fernanda.davila.restrepo@uni-oldenburg.de" 
 
   # Academic websites
