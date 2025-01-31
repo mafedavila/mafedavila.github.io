@@ -24,7 +24,7 @@ author:
   avatar           : "profile.png"
   name             : "Maria F. Davila R."
   pronouns         : "she/her" # example: "she/her"  
-  bio              : "I am a PhD candidate in Computer Science at the University of Oldenburg, specializing in tabular data synthesis with deep generative models. With a Master’s degree in Renewable Energies and a Bachelor’s in Mechanical Engineering, I combine a strong technical foundation with expertise in data analysis, energy efficiency, and sustainability. Over the past years, I have worked with large manufacturing companies, developing digital tools to optimize resource consumption and analyze carbon footprints. My passion lies in bridging informatics and mechanical engineering to drive industry forward."
+  bio              : "PhD candidate in Computer Science at the University of Oldenburg, specializing in tabular data synthesis with deep generative models."
   location         : "Oldenburg, Germany"
   employer         : "Carl von Ossietzky"
   uri              : "https://uol.de" # URL
