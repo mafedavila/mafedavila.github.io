@@ -22,11 +22,18 @@ document.addEventListener("DOMContentLoaded", function () {
                                             options: [
                                                 {
                                                     text: "No",
-                                                    result: "TabDDPM, CTAB-GAN, AutoDiff, TabSyn",
+                                                    result: [
+                                                        { name: "TabDDPM", link: "https://github.com/yandex-research/tab-ddpm" },
+                                                        { name: "CTAB-GAN", link: "https://github.com/Team-TUD/CTAB-GAN" },
+                                                        { name: "AutoDiff", link: "https://github.com/UCLA-Trustworthy-AI-Lab/AutoDiffusion" },
+                                                        { name: "TabSyn", link: "https://github.com/amazon-science/tabsyn" },
+                                                    ],
                                                 },
                                                 {
                                                     text: "Yes",
-                                                    result: "CTAB-GAN+",
+                                                    result: [
+                                                        { name: "CTAB-GAN+", link: "https://github.com/Team-TUD/CTAB-GAN-Plus" },
+                                                    ],
                                                 },
                                             ],
                                         },
@@ -38,11 +45,15 @@ document.addEventListener("DOMContentLoaded", function () {
                                             options: [
                                                 {
                                                     text: "No",
-                                                    result: "C3TGAN",
+                                                    result: [
+                                                        { name: "C3TGAN", link: "https://www.techrxiv.org/doi/full/10.36227/techrxiv.24249643.v1" },
+                                                    ],
                                                 },
                                                 {
                                                     text: "Yes",
-                                                    result: "Kamino",
+                                                    result: [
+                                                        { name: "Kamino", link: "https://github.com/cgebest/kamino" },
+                                                    ],
                                                 },
                                             ],
                                         },
@@ -57,11 +68,16 @@ document.addEventListener("DOMContentLoaded", function () {
                                 options: [
                                     {
                                         text: "No",
-                                        result: "REaLTabFormer (two tables) or PrivLava (more than two tables)",
+                                        result: [
+                                            { name: "REaLTabFormer (two tables)", link: "https://github.com/worldbank/REaLTabFormer" },
+                                            { name: "PrivLava (more than two tables)", link: "https://github.com/Wind-Gone/awesome-olap-paper" },
+                                        ],
                                     },
                                     {
                                         text: "Yes",
-                                        result: "GAP",
+                                        result: [
+                                            { name: "Research Gap" },
+                                        ],
                                     },
                                 ],
                             },
@@ -82,18 +98,26 @@ document.addEventListener("DOMContentLoaded", function () {
                                 options: [
                                     {
                                         text: "No",
-                                        result: "TimeVAE, TimeGAN, TSGM",
+                                        result: [
+                                            { name: "TimeVAE", link: "https://github.com/abudesai/timeVAE" },
+                                            { name: "TimeGAN", link: "https://github.com/jsyoon0823/TimeGAN" },
+                                            { name: "TSGM", link: "https://github.com/AlexanderVNikitin/tsgm" },
+                                        ],
                                     },
                                     {
                                         text: "Yes",
-                                        result: "DoppelGANger",
+                                        result: [
+                                            { name: "DoppelGANger", link: "https://github.com/fjxmlzn/DoppelGANger" },
+                                        ],
                                     },
                                 ],
                             },
                         },
                         {
                             text: "Yes",
-                            result: "GAP",
+                            result: [
+                                { name: "Research Gap" },
+                            ],
                         },
                     ],
                 },
@@ -112,18 +136,26 @@ document.addEventListener("DOMContentLoaded", function () {
                                 options: [
                                     {
                                         text: "No",
-                                        result: "GReaT, Tabula",
+                                        result: [
+                                            { name: "GReaT", link: "https://github.com/kathrinse/be_great" },
+                                            { name: "Tabula", link: "https://github.com/zhao-zilong/Tabula" },
+                                        ],
                                     },
                                     {
                                         text: "Yes",
-                                        result: "REaLTabFormer (two tables) or GAP (more than two tables)",
+                                        result: [
+                                            { name: "REaLTabFormer (two tables)", link: "https://github.com/worldbank/REaLTabFormer" },
+                                            { name: "More than two tables: Research Gap"},
+                                        ],
                                     },
                                 ],
                             },
                         },
                         {
                             text: "Yes",
-                            result: "GAP",
+                            result: [
+                                { name: "Research Gap"},
+                            ],
                         },
                     ],
                 },
@@ -151,11 +183,27 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    function renderResult(resultText) {
+    function renderResult(results) {
         decisionTreeContainer.innerHTML = ""; // Clear previous content
-        const resultElement = document.createElement("h2");
-        resultElement.textContent = "Result: " + resultText;
-        decisionTreeContainer.appendChild(resultElement);
+
+        const resultTitle = document.createElement("h2");
+        resultTitle.textContent = "Recommended Tools:";
+        decisionTreeContainer.appendChild(resultTitle);
+
+        if (Array.isArray(results)) {
+            results.forEach((result) => {
+                const link = document.createElement("a");
+                link.textContent = result.name;
+                link.href = result.link;
+                link.target = "_blank"; // Open in a new tab
+                link.style.display = "block"; // Display each link on a new line
+                decisionTreeContainer.appendChild(link);
+            });
+        } else {
+            const noResult = document.createElement("p");
+            noResult.textContent = "No tools found.";
+            decisionTreeContainer.appendChild(noResult);
+        }
     }
 
     // Start the decision tree
