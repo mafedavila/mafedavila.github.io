@@ -185,19 +185,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function renderResult(results) {
         decisionTreeContainer.innerHTML = ""; // Clear previous content
-
+    
         const resultTitle = document.createElement("h2");
         resultTitle.textContent = "Recommended Tools:";
         decisionTreeContainer.appendChild(resultTitle);
-
+    
         if (Array.isArray(results)) {
             results.forEach((result) => {
-                const link = document.createElement("a");
-                link.textContent = result.name;
-                link.href = result.link;
-                link.target = "_blank"; // Open in a new tab
-                link.style.display = "block"; // Display each link on a new line
-                decisionTreeContainer.appendChild(link);
+                if (result.link) {
+                    // Render as a clickable link
+                    const link = document.createElement("a");
+                    link.textContent = result.name;
+                    link.href = result.link;
+                    link.target = "_blank"; // Open in a new tab
+                    link.style.display = "block"; // Display each link on a new line
+                    decisionTreeContainer.appendChild(link);
+                } else {
+                    // Render as plain text
+                    const text = document.createElement("p");
+                    text.textContent = result.name;
+                    text.style.margin = "5px 0"; // Add some spacing
+                    decisionTreeContainer.appendChild(text);
+                }
             });
         } else {
             const noResult = document.createElement("p");
