@@ -3,29 +3,132 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Define the decision tree structure
     const tree = {
-        question: "Do you need structured or unstructured data?",
+        question: "What column types are present in the original/target dataset?",
         options: [
             {
-                text: "Structured",
+                text: "Categorical, Numerical, and Mixed (categorical and numerical in one column)",
                 next: {
-                    question: "Do you want synthetic or real data?",
+                    question: "Is preservation of inter-table correlations necessary?",
                     options: [
-                        { text: "Synthetic", result: "Use a tabular data synthesis tool." },
-                        { text: "Real", result: "Consider data anonymization methods." }
-                    ]
-                }
+                        {
+                            text: "No",
+                            next: {
+                                question: "Is preservation of integrity constraints necessary?",
+                                options: [
+                                    {
+                                        text: "No",
+                                        next: {
+                                            question: "Is differential privacy necessary?",
+                                            options: [
+                                                {
+                                                    text: "No",
+                                                    result: "TabDDPM, CTAB-GAN, AutoDiff, TabSyn",
+                                                },
+                                                {
+                                                    text: "Yes",
+                                                    result: "CTAB-GAN+",
+                                                },
+                                            ],
+                                        },
+                                    },
+                                    {
+                                        text: "Yes",
+                                        next: {
+                                            question: "Are inter-record constraints necessary?",
+                                            options: [
+                                                {
+                                                    text: "No",
+                                                    result: "C3TGAN",
+                                                },
+                                                {
+                                                    text: "Yes",
+                                                    result: "Kamino",
+                                                },
+                                            ],
+                                        },
+                                    },
+                                ],
+                            },
+                        },
+                        {
+                            text: "Yes",
+                            next: {
+                                question: "Is preservation of integrity constraints necessary?",
+                                options: [
+                                    {
+                                        text: "No",
+                                        result: "REaLTabFormer (two tables) or PrivLava (more than two tables)",
+                                    },
+                                    {
+                                        text: "Yes",
+                                        result: "GAP",
+                                    },
+                                ],
+                            },
+                        },
+                    ],
+                },
             },
             {
-                text: "Unstructured",
+                text: "Categorical, Numerical, and Temporal",
                 next: {
-                    question: "Are you working with images or text?",
+                    question:
+                        "Is preservation of integrity constraints or inter-table correlations or customized generation necessary?",
                     options: [
-                        { text: "Images", result: "Try a generative model like GANs." },
-                        { text: "Text", result: "Consider NLP-based text generation models." }
-                    ]
-                }
-            }
-        ]
+                        {
+                            text: "No",
+                            next: {
+                                question: "Is preservation of long-term temporal dependencies necessary?",
+                                options: [
+                                    {
+                                        text: "No",
+                                        result: "TimeVAE, TimeGAN, TSGM",
+                                    },
+                                    {
+                                        text: "Yes",
+                                        result: "DoppelGANger",
+                                    },
+                                ],
+                            },
+                        },
+                        {
+                            text: "Yes",
+                            result: "GAP",
+                        },
+                    ],
+                },
+            },
+            {
+                text: "Categorical, Numerical, Mixed, Temporal, and Text",
+                next: {
+                    question:
+                        "Is preservation of integrity constraints or temporal dependencies necessary?",
+                    options: [
+                        {
+                            text: "No",
+                            next: {
+                                question:
+                                    "Is preservation of inter-table correlations necessary?",
+                                options: [
+                                    {
+                                        text: "No",
+                                        result: "GReaT, Tabula",
+                                    },
+                                    {
+                                        text: "Yes",
+                                        result: "REaLTabFormer (two tables) or GAP (more than two tables)",
+                                    },
+                                ],
+                            },
+                        },
+                        {
+                            text: "Yes",
+                            result: "GAP",
+                        },
+                    ],
+                },
+            },
+        ],
     };
 
     function renderQuestion(node) {
