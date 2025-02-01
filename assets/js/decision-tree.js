@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                         text: "Yes",
                                         result: [
                                             { name: "REaLTabFormer (two tables)", link: "https://github.com/worldbank/REaLTabFormer" },
-                                            { name: "More than two tables: Research Gap"},
+                                            { name: "More than two tables: Research Gap" },
                                         ],
                                     },
                                 ],
@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         {
                             text: "Yes",
                             result: [
-                                { name: "Research Gap"},
+                                { name: "Research Gap" },
                             ],
                         },
                     ],
@@ -185,27 +185,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function renderResult(results) {
         decisionTreeContainer.innerHTML = ""; // Clear previous content
-    
+
         const resultTitle = document.createElement("h2");
         resultTitle.textContent = "Recommended Tools:";
         decisionTreeContainer.appendChild(resultTitle);
-    
+
         if (Array.isArray(results)) {
             results.forEach((result) => {
-                if (result.link) {
-                    // Render as a clickable link
-                    const link = document.createElement("a");
-                    link.textContent = result.name;
-                    link.href = result.link;
-                    link.target = "_blank"; // Open in a new tab
-                    link.style.display = "block"; // Display each link on a new line
-                    decisionTreeContainer.appendChild(link);
-                } else {
+                if (result.name === "Research Gap" || result.name.includes("Gap")) {
                     // Render as plain text
                     const text = document.createElement("p");
                     text.textContent = result.name;
                     text.style.margin = "5px 0"; // Add some spacing
                     decisionTreeContainer.appendChild(text);
+                } else {
+                    // Render as a clickable link
+                    const link = document.createElement("a");
+                    link.textContent = result.name;
+                    link.href = result.link;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    decisionTreeContainer.appendChild(link);
                 }
             });
         } else {
@@ -213,6 +213,15 @@ document.addEventListener("DOMContentLoaded", function () {
             noResult.textContent = "No tools found.";
             decisionTreeContainer.appendChild(noResult);
         }
+
+        // Add "Start Again" button
+        const restartButton = document.createElement("button");
+        restartButton.textContent = "Start Again";
+        restartButton.style.marginTop = "20px";
+        restartButton.onclick = function () {
+            renderQuestion(tree); // Restart the decision tree
+        };
+        decisionTreeContainer.appendChild(restartButton);
     }
 
     // Start the decision tree
