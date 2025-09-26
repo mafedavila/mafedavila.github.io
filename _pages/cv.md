@@ -17,7 +17,10 @@ Education
 
 Work experience
 ======
-* 09.2024 - Currently: Energy Efficiency Expert
+* 06.2025 - Currently: Process and Data Manager
+  * EWE Gasspeicher Oldenburg
+
+* 09.2024 - 05.2025: Energy Efficiency Expert
   * ArcelorMittal Bremen
 
 * 01.2022 - 08.2024: Researcher
