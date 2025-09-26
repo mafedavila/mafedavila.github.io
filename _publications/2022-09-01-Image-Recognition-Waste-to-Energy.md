@@ -1,7 +1,7 @@
 ---
 title: "The application of image recognition methods to improve the performance of waste-to-energy plants"
 collection: publications
-category: conferences
+category: manuscripts
 permalink: /publication/2022-09-01-Image-Recognition-Waste-to-Energy
 excerpt: 'In this paper, we present an image recognition method to improve the performance of waste-to-energy plants.'
 date: 2022-09-01

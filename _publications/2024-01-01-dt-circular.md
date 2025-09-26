@@ -1,7 +1,7 @@
 ---
 title: 'Digital Twins: Enhancing Circular Economy through Digital Tools'
 collection: publications
-category: conferences
+category: manuscripts
 permalink: /publication/2024-01-01-dt-circular
 excerpt: 'This paper discusses the state of the art of digital twins and presents a digital shadow—a comprehensive digital tool design to support manufacturers during the product design phase. Drawing from a case study in the automotive sector, this tool not only aligns with recycling and sustainability objectives but also mitigates risks associated with raw material dependencies.'
 date: 2024-01-01

@@ -1,7 +1,7 @@
 ---
 title: 'Benchmarking Tabular Data Synthesis for User Guidance'
 collection: publications
-category: conferences
+category: manuscripts
 permalink: /publication/2024-03-01-benchmarking-tabular-data-synthesis
 excerpt: 'This work presented the idea in a PhD Workshop to benchmark tabular data synthesis tools, to offer insights for user guidance.'
 date: 2024-03-01

@@ -1,7 +1,7 @@
 ---
 title: 'Quantifying the Environmental Impacts of Battery Electric Vehicles from a Criticality Perspective'
 collection: publications
-category: conferences
+category: manuscripts
 permalink: /publication/2022-06-01-battery-electric-vehicles-criticality
 excerpt: 'This paper quantifies the environmental impacts of battery electric vehicles with a focus on criticality.'
 date: 2022-06-01
