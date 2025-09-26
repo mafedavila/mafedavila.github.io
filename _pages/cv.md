@@ -41,7 +41,6 @@ Work experience
 Skills
 ======
 * **Datenanalyse, Cloud Computing, Database Management und FrontEnd**
-  * PowerBI
   * Python - Advanced
   * Matlab
   * R
